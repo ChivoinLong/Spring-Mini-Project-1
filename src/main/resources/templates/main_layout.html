@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE">MAIN TITLE</title>
+    <style th:replace="@{/shared/head_link}"></style>
+</head>
+<body>
+<div class="wrapper has-footer">
+
+    <div th:replace="@{/shared/header}"></div>
+
+    <div th:replace="@{/shared/side_navigation}"></div>
+
+    <div th:fragment="content"></div>
+
+    <div th:replace="@{/shared/footer}"></div>
+
+</div>
+
+<div th:replace="@{/shared/foot_link}"></div>
+</body>
+</html>
