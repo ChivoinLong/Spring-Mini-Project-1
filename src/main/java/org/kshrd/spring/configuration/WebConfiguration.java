@@ -32,13 +32,13 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry) {
         super.addViewControllers(registry);
 
-        registry.addViewController("/").setViewName("/dashboard");
-        registry.addViewController("/dashboard").setViewName("/dashboard");
-        registry.addViewController("/user-form").setViewName("/user_form");
-        registry.addViewController("/user-list").setViewName("/user_list");
-        registry.addViewController("/role-form").setViewName("/role_form");
-        registry.addViewController("/role-list").setViewName("/role_list");
-        registry.addViewController("/pagenotfound").setViewName("/not_found");
+//        registry.addViewController("/").setViewName("/dashboard");
+//        registry.addViewController("/dashboard").setViewName("/dashboard");
+//        registry.addViewController("/user-form").setViewName("/user_form");
+//        registry.addViewController("/user-list").setViewName("/user_list");
+//        registry.addViewController("/role-form").setViewName("/role_form");
+//        registry.addViewController("/role-list").setViewName("/role_list");
+//        registry.addViewController("/pagenotfound").setViewName("/not_found");
     }
 
     @Bean
