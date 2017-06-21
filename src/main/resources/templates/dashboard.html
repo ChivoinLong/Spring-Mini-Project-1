@@ -1,15 +1,250 @@
 <!DOCTYPE html>
-<html xmlns:th="http:/www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf"
-      lang="en"
-      layout:decorator="main_layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/main_layout">
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title th:text="#{dashboard}"></title>
+    <th:block layout:fragment="style" th:remove="tag">
+        <link rel="stylesheet" type="text/css" th:href="@{/res/assets/plugins/monthly/css/monthly.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/res/assets/plugins/emojionearea/emojionearea.min.css}">
+    </th:block>
 </head>
 <body>
-<div th:fragment="content" class="main-container">
-    <h1>Dashboard</h1>
-</div>
+    <div layout:fragment="content" th:remove="tag">
+        <div class="main-container">
+            <div class="page-header" th:inline="text">
+                <h1>[[#{dashboard}]]
+                    <small>[[#{welcome}]] <span class="text-primary">[[#{username}]]</span></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#" th:text="#{home}">Home</a></li>
+                    <li class="active" th:text="#{dashboard}">Dashboard</li>
+                </ol>
+            </div>
+
+            <div class="content-wrap">  <!--START: Content Wrap-->
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" th:inline="text">
+                                <h3 class="panel-title"><i class="fs-bars"></i> [[#{live_feeds}]]</h3>
+                                <div class="tools">
+                                    <a class="btn-link reload" href="javascript:;"><i class="ti-reload"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="col-md-8">
+                                    <div class="chartDashboard" id="chartLive"></div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="row">
+
+                                        <div class="col-sm-6 col-md-12 pt-md" th:inline="text">
+                                            [[#{my_tasks}]] <strong class="pull-right">12/20</strong>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar" style="width: 60%;"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-12 pt-md" th:inline="text">
+                                            [[#{storage}]] <strong class="pull-right">8/20 GB</strong>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar progress-bar-success" style="width: 40%;"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-12 pt-md" th:inline="text">
+                                            [[#{bugs}]] <strong class="pull-right">90/100</strong>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar progress-bar-danger" style="width: 90%;"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-12 pt-md" th:inline="text">
+                                            [[#{user_testing}]] <strong class="pull-right">7 [[#{days}]]</strong>
+                                            <div class="progress progress-sm progress-striped active">
+                                                <div class="progress-bar progress-bar-warning" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-mob">
+                        <div class="panel">
+                            <div class="panel-body text-center">
+
+                                <h4 th:text="#{visitors}"></h4>
+
+                                <input class="chart-knob"
+                                       data-angleArc=360
+                                       data-bgColor="rgba(255,72,89,0.1)"
+                                       data-fgColor="#FF4859"
+                                       data-thickness=".2"
+                                       value="90"
+                                       data-end="90"
+                                       data-width="100"
+                                       data-height="100"
+                                       data-readonly="true">
+
+                                <div class="db-details pt-md">
+                                    <ul class="list-unstyled text-left" th:inline="text">
+                                        <li class="text-danger">
+                                            <i class="fa fa-square"></i> &nbsp;[[#{today}]]
+                                            <span class="pull-right">20%</span>
+                                        </li>
+                                        <li class="text-success">
+                                            <i class="fa fa-square"></i> &nbsp;[[#{yesterday}]]
+                                            <span class="pull-right">40%</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-mob">
+                        <div class="panel">
+                            <div class="panel-body text-center">
+
+                                <h4 th:text="#{bar_chart}">Bar Chart</h4>
+
+                                <span class="sparkline-bar"
+                                      data-height="100"
+                                      data-barColor="#00C9E6"
+                                      data-lineColor="#32c8de"
+                                      data-barWidth="10">15,20,34,56,78,23,90,13,50,20,45</span>
+
+                                <div class="pt-md mb-sm text-lg">
+                                    <span> 140 <i class="fa fa-angle-double-up text-success"></i></span> &nbsp;
+                                    <span> 250 <i class="fa fa-angle-double-down text-danger"></i></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="monthly" id="mycalendar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div id="browser-chart" style="height:370px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 socialAnalytics">
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 ui-padd">
+                            <!-- UI social -->
+                            <div class="ui-social facebook">
+                                <!-- facebook -->
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">2345</a></h5>
+                                        <h6><a href="#" th:text="#{likes}">Likes</a></h6>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">2224</a></h5>
+                                        <h6><a href="#" th:text="#{shares}">Shares</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 ui-padd">
+                            <div class="ui-social google-plus ">
+                                <!-- Google plus -->
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">2345</a></h5>
+                                        <h6><a href="#" th:text="#{photos}">Photos</a></h6>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">1111</a></h5>
+                                        <h6><a href="#" th:text="#{shares}">Share</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 ui-padd">
+                            <!-- Twitter -->
+                            <div class="ui-social twitter">
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">1144</a></h5>
+                                        <h6><a href="#">Tweets</a></h6>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">2211</a></h5>
+                                        <h6><a href="#">Followers</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 ui-padd">
+                            <!-- Youtube -->
+                            <div class="ui-social youtube">
+                                <a href="#"><i class="fa fa-youtube"></i></a>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">2312</a></h5>
+                                        <h6><a href="#" th:text="#{videos}">Videos</a></h6>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <h5><a href="#">2478</a></h5>
+                                        <h6><a href="#" th:text="#{likes}">Likes</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  <!--END: Content Wrap-->*
+        </div>
+    </div>
+
+    <th:block layout:fragment="script">
+    <script type="text/javascript" th:src="@{/res/assets/plugins/flot/excanvas.min.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/flot/jquery.flot.min.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/flot/jquery.flot.tooltip.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/flot/jquery.flot.resize.min.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/flot/jquery.flot.crosshair.min.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/flot/jquery.flot.pie.min.js}"></script>
+
+    <script type="text/javascript" th:src="@{/res/assets/plugins/lib/sparklines.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/lib/jquery.knob.min.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/monthly/js/monthly.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/plugins/emojionearea/emojionearea.min.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/js/cmp-todo.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets/js/page-dashboard.js}"></script>
+    </th:block>
 </body>
 </html>

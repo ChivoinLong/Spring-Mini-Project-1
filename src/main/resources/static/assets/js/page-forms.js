@@ -30,7 +30,7 @@ var FormValidationInline = function () {
                     required: true,
                     minlength: 5
                 },
-                passwordc: {
+                confirmpassword: {
                     required: true,
                     minlength: 5,
                     equalTo: "#password"
@@ -50,7 +50,7 @@ var FormValidationInline = function () {
                 lastname: "Please enter the Last Name",
                 email: "Please enter Correct E-mail Address",
                 password: "Please enter password",
-                passwordc: "Please enter password",
+                confirmpassword: "Please enter password",
                 url: "Please enter valid URL",
                 numbers: "Please enter Numbers only"
             },

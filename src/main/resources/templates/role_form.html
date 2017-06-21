@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/main_layout">
+<head>
+    <title th:text="#{role_form}">Role Form</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="main-container">
+
+        <div class="page-header">
+            <h1 th:text="#{role_form}">Role Form</h1>
+            <ol class="breadcrumb">
+                <li><a th:href="@{/}" th:text="#{home}">Home</a></li>
+                <li class="active" th:text="#{role_form}">Role Form</li>
+            </ol>
+        </div>
+
+        <div class="content-wrap">  <!--START: Content Wrap-->
+
+            <div class="row">
+
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" th:text="#{enter_your_info}">Enter your information</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputUserName" class="col-sm-3 control-label" th:text="#{full_name}">Full Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="inputUserName">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label" th:text="#{email}">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="inputEmail3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-3 control-label" th:text="#{password}">Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="inputPassword3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword4" class="col-sm-3 control-label" th:text="#{c_password}">Confirm Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="inputPassword4">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" class="btn btn-success" th:text="#{create}">Create New Role</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

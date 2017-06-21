@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/main_layout">
+<head>
+    <title th:text="#{user_form}">User Form</title>
+    <th:block layout:fragment="style">
+        <link rel="stylesheet" type="text/css" th:href="@{/res/assets/plugins/validationEngine/validationEngine.jquery.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/res/assets/plugins/customselect/customselect.css}">
+    </th:block>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="main-container">
+
+        <div class="page-header">
+            <h1 th:text="#{user_form}">User Form</h1>
+            <ol class="breadcrumb">
+                <li><a th:href="@{/}" th:text="#{home}">Home</a></li>
+                <li class="active" th:text="#{user_form}">User Form</li>
+            </ol>
+        </div>
+
+        <div class="content-wrap">  <!--START: Content Wrap-->
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" th:text="#{create_new_user}">Create New User</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <form class="form-validate" action="#" role="form">
+                                <div class="form-body">
+
+                                    <div class="form-group">
+                                        <label for="username" th:text="#{user_name}">Username</label>
+                                        <input type="text" class="form-control" name="username" id="username" th:placeholder="#{user_name}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password" th:text="#{password}">Password</label>
+                                        <input type="password" class="form-control" name="password" id="password" th:placeholder="#{password}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmpassword" th:text="#{c_password}">Confirm Password</label>
+                                        <input type="password" class="form-control" name="confirmpassword" id="confirmpassword" th:placeholder="#{c_password}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12 control-label" th:text="#{role_list}">Roles</label>
+                                        <select name="role" class="form-control custom-Select" multiple="multiple" data-selectAll="1">
+                                            <option value="admin">Administrator</option>
+                                            <option value="seller">Seller</option>
+                                            <option value="accountant">Accountant</option>
+                                            <option value="user">User</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions fluid">
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" class="btn btn-info" th:text="#{create_new_user}">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>  <!-- END: Panel Body -->
+                    </div>  <!-- END: Panel -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="script">
+    <script th:src="@{/res/assets/plugins/customselect/jquery.customselect.js}"></script>
+    <script th:src="@{/res/assets//plugins/validationEngine/jquery.validationEngine.js}"></script>
+    <script th:src="@{/res/assets//plugins/validationEngine/languages/jquery.validationEngine-en.js}"></script>
+    <script th:src="@{/res/assets//plugins/validation/jquery.validate.min.js}"></script>
+    <script type="text/javascript" th:src="@{/res/assets//js/page-validation.js}"></script>
+    <script>
+        jQuery(document).ready(function () {
+            FormValidationInline.init();
+            FormValidationTooltip.init();
+        });
+    </script>
+</th:block>
+
+
+</body>
+</html>

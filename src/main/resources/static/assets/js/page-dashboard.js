@@ -173,7 +173,7 @@ function handle_MonthlyCalendar() {
 
     $('#mycalendar').monthly({
         mode: 'event',
-        jsonUrl: 'demo/data/monthly-events.json',
+        jsonUrl: '/assets/demo/data/monthly-events.json',
         dataType: 'json'
         //xmlUrl: 'data/events.xml'
     });
