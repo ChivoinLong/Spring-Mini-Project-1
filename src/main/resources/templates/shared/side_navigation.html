@@ -40,6 +40,18 @@
                 </a>
             </li>
 
+            <li class="has-submenu">
+                <a href="#language" data-toggle="collapse" aria-expanded="false">
+                    <i class="di di-admin-site"></i>
+                    <span class="nav-text" th:text="#{language}"></span>
+                </a>
+                <div class="sub-menu collapse secondary" id="language">
+                    <ul>
+                        <li><a th:href="@{?lang=kh}" th:text="#{khmer}">Khmer</a></li>
+                        <li><a th:href="@{?lang=en}" th:text="#{english}">English</a></li>
+                    </ul>
+                </div>
+            </li>
         </ul>
 
     </div><!-- END: sidebar-inner -->

@@ -5,7 +5,7 @@
             <div class="main-search">
                 <div class="input-wrap">
                     <input class="form-control" type="text" th:placeholder="#{search_here}">
-                    <a th:href="@{/pagenotfound}"><i class="sli-magnifier"></i></a>
+                    <a th:href="@{/search}"><i class="sli-magnifier"></i></a>
                 </div>
                 <span class="close-search search-toggle"><i class="ti-close"></i></span>
             </div>
@@ -14,7 +14,7 @@
 
     <div class="navbar-header">
         <button type="button" class="navbar-toggle side-nav-toggle">
-            <i class="ti-align-left"></i>
+            <i class="di di-menu"></i>
         </button>
 
         <a class="navbar-brand" th:href="@{/}">
@@ -44,29 +44,20 @@
 
             <li class="hidden-xs">
                 <a href="javascript:" class="sidenav-size-toggle">
-                    <i class="ti-align-left"></i>
+                    <i class="di di-menu"></i>
                 </a>
             </li>
 
             <li class="main-search hidden-xs">
                 <div class="input-wrap">
                     <input class="form-control" type="text" th:placeholder="#{search_here}" style="width: 300px;">
-                    <a th:href="@{/pagenotfound}"><i class="sli-magnifier"></i></a>
+                    <a th:href="@{/search}"><i class="sli-magnifier"></i></a>
                 </div>
             </li>
 
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-
-            <li>
-                <a th:text="#{khmer}" th:href="@{?lang=kh}"></a>
-            </li>
-
-            <li>
-                <a th:text="#{en}" th:href="@{?lang=en}"></a>
-            </li>
-
             <li class="user-profile dropdown">
                 <a href="javascript:" class="clearfix dropdown-toggle" data-toggle="dropdown">
                     <img th:src="@{/res/assets/demo/users/img-user-07.jpg}" alt="" class="hidden-sm">
@@ -75,12 +66,12 @@
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-animated pop-effect" role="menu" th:inline="text">
-                    <li><a th:href="@{/pagenotfound}"><i class="sli-user"></i>[[#{my_profile}]]</a></li>
-                    <li><a th:href="@{/pagenotfound}"><i class="sli-calendar"></i>[[#{calendar}]]</a></li>
-                    <li><a th:href="@{/pagenotfound}"><i class="fa fa-envelope-o"></i>[[#{inbox}]]</a></li>
+                    <li><a th:href="@{/my-profile}"><i class="sli-user"></i>[[#{my_profile}]]</a></li>
+                    <li><a th:href="@{/calendar}"><i class="sli-calendar"></i>[[#{calendar}]]</a></li>
+                    <li><a th:href="@{/inbox}"><i class="fa fa-envelope-o"></i>[[#{inbox}]]</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a th:href="@{/pagenotfound}"><i class="sli-question"></i>[[#{faq}]]</a></li>
-                    <li><a th:href="@{/pagenotfound}"><i class="sli-logout"></i>[[#{logout}]]</a></li>
+                    <li><a th:href="@{/faq}"><i class="sli-question"></i>[[#{faq}]]</a></li>
+                    <li><a th:href="@{/logout}"><i class="sli-logout"></i>[[#{logout}]]</a></li>
                 </ul>
             </li>
 
