@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/main_layout">
+<head>
+    <title th:text="#{role_list}">Role List</title>
+    <th:block layout:fragment="style">
+        <link rel="stylesheet" type="text/css" th:href="@{/res/assets/css/lib/page-acctivity-timeline.css}">
+    </th:block>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="main-container">    <!-- START: Main Container -->
+        <div class="page-header">
+            <h1 th:text="#{user_info}">User Form</h1>
+            <ol class="breadcrumb">
+                <li><a th:href="@{/}" th:text="#{home}">Home</a></li>
+                <li><a th:href="@{/user/list}" th:text="#{user}">User</a></li>
+                <li class="active" th:text="#{user_info}">User Information</li>
+            </ol>
+        </div>
+
+        <div class="content-wrap">  <!--START: Content Wrap-->
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3 th:text="#{user_detail}"></h3>
+                            <form class="form-horizontal basic-info" th:object="${USER}">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" th:text="#{id}"></label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static" th:text="*{mId}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" th:text="#{user_name}"></label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static" th:text="*{mUsername}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" th:text="#{gender}"></label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static" th:text="*{mGender}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" th:text="#{email}"></label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static" th:text="*{mEmail}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" th:text="#{phone_number}"></label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static" th:text="*{mPhoneNumber}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" th:text="#{status}"></label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static" th:text="*{mStatus}"></p>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>  <!--END: Content Wrap-->
+
+    </div>  <!-- END: Main Container -->
+</div>
+</body>
+</html>

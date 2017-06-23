@@ -20,28 +20,20 @@ var FormValidationInline = function () {
 
             rules: {
                 username: {
-                    required: true,
-                    username: true
+                    required: true
                 },
-                password: {
-                    required: true,
-                    minlength: 8
+                email: {
+                    required: true
                 },
-                confirmpassword: {
-                    required: true,
-                    minlength: 8,
-                    equalTo: "#password"
-                },
-                role: {
+                phoneNumber: {
                     required: true
                 }
             },
 
             messages: {
-                username: "Please enter user name",
-                password: "Please enter password",
-                confirmpassword: "Passwords don't match",
-                numbers: "Please enter Numbers only"
+                username: "Please enter username",
+                email: "Please enter email",
+                phoneNumber: "Please enter phone number"
             },
             highlight: function (element) { // hightlight error inputs
                 $(element)

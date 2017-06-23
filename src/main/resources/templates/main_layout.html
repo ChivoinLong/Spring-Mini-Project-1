@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE" th:text="#{username}">Long Chivoin</title>
-    <style th:replace="@{/shared/header_link}" th:remove="tag"></style>
-    <style layout:fragment="style" th:remove="tag"></style>
+    <style th:replace="@{/shared/header_link}"></style>
+    <style layout:fragment="style"></style>
 </head>
 
 <body>
-    <div class="wrapper has-footer">
+<div class="wrapper has-footer">
 
-        <div th:replace="@{/shared/header}"></div>
+    <div th:replace="@{/shared/header}"></div>
 
-        <div th:replace="@{/shared/side_navigation}"></div>
+    <div th:replace="@{/shared/side_navigation}"></div>
 
-        <div layout:fragment="content"></div>
+    <div layout:fragment="content"></div>
 
-        <div th:replace="@{/shared/footer}"></div>
+    <div th:replace="@{/shared/footer}"></div>
 
-    </div>
+</div>
 
-    <th:block th:replace="@{/shared/footer_link}"></th:block>
-    <th:block layout:fragment="script"></th:block>
+<th:block th:replace="@{/shared/footer_link}"></th:block>
+<th:block layout:fragment="script"></th:block>
 </body>
 </html>
